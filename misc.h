@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <cstddef>
 #include <stddef.h>
+#include <stack>
 using namespace std;
 
 struct ListNode
