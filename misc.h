@@ -4,6 +4,8 @@
 #include <cstddef>
 #include <stddef.h>
 #include <stack>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 
 struct ListNode
@@ -34,3 +36,27 @@ struct ListNode
         cout<<endl;
     }
 };
+
+vector<string> mysplit(string input, string d)
+{
+    vector<string> vec;
+    string currentstr = input;
+    while(true){
+        size_t p = currentstr.find_first_of(d);
+        if(p!=string::npos){  
+            vec.push_back(currentstr.substr(0, p));           
+            currentstr = currentstr.substr(p+1, string::npos);
+        }else{
+            vec.push_back(currentstr);
+            break;
+        }
+    } 
+    return vec;
+}
+
+template <typename T>
+void printVector(vector<T> vec){
+    for (typename vector<T>::iterator it = vec.begin() ; it != vec.end(); ++it){
+        cout<<*it<<endl;
+    }
+}
